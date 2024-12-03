@@ -6,9 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AdventOfCode;
-
-
-
 public class Day02 : BaseDay
 {
     private readonly string _input;
@@ -41,7 +38,7 @@ public class Day02 : BaseDay
             {
                 tempList.Add(int.Parse(number));
             }
-            if (CheckList(tempList))
+            if (CheckList(ref tempList))
             {
                 runningTotal++;
             }
@@ -63,7 +60,7 @@ public class Day02 : BaseDay
             {
                 levels.Add(int.Parse(number));
             }
-            if (CheckList(levels))
+            if (CheckList(ref levels))
             {
                 runningTotal++;
             }
@@ -80,7 +77,7 @@ public class Day02 : BaseDay
                             tempList.Add(levels[j]);
                         }
                     }
-                    if (CheckList(tempList))
+                    if (CheckList(ref tempList))
                     {
                         worksWithProblemDamper = true;
                         break;
@@ -93,7 +90,7 @@ public class Day02 : BaseDay
         return runningTotal;
     }
 
-    bool CheckList(List<int> levelsList)
+    bool CheckList(ref List<int> levelsList)
     {
         ListSortType listSortType = ListSortType.Unknown;
         int lastNumber = -1;
